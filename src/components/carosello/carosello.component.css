@@ -60,6 +60,8 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
+    white-space: nowrap;
+  overflow:scroll;
 }
 
 .carosello::-webkit-scrollbar{
@@ -71,6 +73,7 @@
     height: 332px;
     object-fit: cover;
     border-radius: 10px;
+    box-shadow: 0  3px 6px;
     /* padding: 0.5rem; */
 }
 
@@ -99,6 +102,20 @@
 
 .carosello.no-transition {
     scroll-behavior: auto;
+}
+
+#radio-container {
+    display: flex;
+    justify-content: center;
+}
+
+#radio-container li {
+    list-style: none;
+    padding: 0.5rem;
+}
+
+.no-cursor-pointer {
+    pointer-events: none;
 }
 
 @media screen and (max-width: 900px) {

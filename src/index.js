@@ -26,5 +26,7 @@ const urlsMock = [
 }) */
 
 
-const carosello = document.getElementById('my__component');
-carosello.setAttribute('imglist', urlsMock);
+setTimeout(() => {
+    const carosello = document.getElementById('my__component');
+    carosello.setAttribute('imglist', urlsMock);
+}, 200)
