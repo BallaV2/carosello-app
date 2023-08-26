@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    max-width: 1100px;
+    width: 100%;
+    position: relative;
+}
+
+.wrapper i {
+    height: 50px;
+    width: 50px;
+    background: rgb(165, 164, 164);
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 50px;
+    border-radius: 50px;
+    opacity: 0.5;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0  3px 6px;
+}
+
+.wrapper i:first-child {
+    left: -22px;
+}
+
+.wrapper i:last-child {
+    right: -22px;
+}
+
+#infiniteArrow {
+    height: 50px;
+    width: 50px;
+    background: rgb(165, 164, 164);
+    text-align: center;
+    font-size: 1.25rem;
+    line-height: 50px;
+    border-radius: 50px;
+    opacity: 0.5;
+    cursor: pointer;
+    position: absolute;
+    top: 0%;
+    left: 48%;
+    transform: translateY(-50%);
+    box-shadow: 0  3px 6px;
+}
+
+.wrapper .carosello {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 14px);
+    gap: 16px;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.carosello::-webkit-scrollbar{
+    display: none;
+}
+
+.card .img img {
+    width: 332px;
+    height: 332px;
+    object-fit: cover;
+    border-radius: 10px;
+    /* padding: 0.5rem; */
+}
+
+.img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carosello .card {
+    scroll-snap-align: start;
+    list-style: none;
+    cursor: pointer;
+    /* background-color: #fff; */
+}
+
+.carosello.dragging {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+}
+
+.carosello.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+.carosello.no-transition {
+    scroll-behavior: auto;
+}
+
+@media screen and (max-width: 900px) {
+    .wrapper .carosello {
+        grid-auto-columns: 100%;
+    }
+
+    .card .img img {
+        width: 100%;
+    }
+
+   /*  .carosello .card {
+        margin: auto;
+    } */
+}
