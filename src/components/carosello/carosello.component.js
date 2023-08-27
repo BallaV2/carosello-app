@@ -333,11 +333,9 @@ class CaroselloComponent extends HTMLElement {
             carosello.classList.add("no-transition");
             carosello.scrollLeft = 0;
             if(rank == 0) {
-                let imgToGoNext = this.imglist.split(',').length <= 9 ? 1 : 0;
-                carosello.scrollLeft += this.isMobile ? 0 : (this.imglist.split(',').length - imgToGoNext) * this.imgWidth;
+                carosello.scrollLeft += this.isMobile ? 0 : this.imglist.split(',').length * this.imgWidth;
             } else if(rank == this.imglist.split(',').length - 1){
-                let imgToReturnBack = this.imglist.split(',').length <= 9 ? 2 : 1;
-                carosello.scrollLeft += this.isMobile ? (this.imglist.split(',').length - 1) * this.imgWidth : (this.imglist.split(',').length - imgToReturnBack) * this.imgWidth;
+                carosello.scrollLeft += (this.imglist.split(',').length - 1) * this.imgWidth;
             } else {
                 carosello.scrollLeft += (this.isMobile ? rank : (rank - 1)) * this.imgWidth;
             }
