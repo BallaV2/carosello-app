@@ -26,6 +26,10 @@
     box-shadow: 0  3px 6px;
 }
 
+.img img:first-child {
+    margin-left: 8px;
+}
+
 .wrapper i:first-child {
     left: -22px;
 }
@@ -61,7 +65,7 @@
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     white-space: nowrap;
-  overflow:scroll;
+    overflow:scroll;
 }
 
 .carosello::-webkit-scrollbar{
@@ -125,6 +129,10 @@
 
     .card .img img {
         width: 100%;
+    }
+
+    .img img:first-child {
+        margin-left: 0px;
     }
 
    /*  .carosello .card {
