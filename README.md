@@ -30,4 +30,4 @@ Di default il carosello usa 9 immagini mockate, per utilizzare le immagini prese
 
 Il numero di immagini si puà cambiare andando a valorizzare la costante nImmagini (è consigliato utilizzare i multipli di 3).
 
-Se si passa dalla visualizzazione desktop a mobile è consigliato ricaricare la pagina perhè l'attributo isMobile al momento non viene aggiornato su questo evento;
+Se si passa dalla visualizzazione desktop a mobile è consigliato ricaricare la pagina perchè l'attributo isMobile al momento non viene aggiornato su questo evento;
