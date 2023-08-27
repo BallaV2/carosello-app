@@ -9,11 +9,12 @@ Punti sviluppati
 4- Funzionalità responsive (permettere lo swipe su mobile per mostrare la foto successiva) NON IMNPLEMENTATO
 5- Animazione di transizione tra le slide 75%(non implementato per i pallini di navigazione)
 7- Autoplay IMNPLEMENTATO
-6- Funzionalità responsive grafica (mostriamo 3 immagini affiancate su desktop ed 1 su mobile IMNPLEMENTATO
+6- Funzionalità responsive grafica (mostriamo 3 immagini affiancate su desktop ed 1 su mobile) IMNPLEMENTATO
 
 Per runnare l'app è sufficente avere node (versione consigliata v18.12.1).
 
-Per eseguire l'app si pùò utilizzare lo script "start" nel package.json o nei casi peggiori si aprire sul browser il file index.html a mano.
+Per eseguire l'app si pùò utilizzare lo script "start" nel package.json e aprire nel browser http://localhost:4200
+Altrimenti nei casi peggiori aprire sul browser il file index.html a mano.
 
 Note:
 Le freccie, i pallini di navigazione e il tasto per l'autoPlay sono stati inseriti come parametri configurabile dal componente.

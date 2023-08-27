@@ -7,7 +7,6 @@ class CaroselloComponent extends HTMLElement {
     isMobile = window.innerWidth < 900;
     currentImg = window.innerWidth < 900 ? 0 : 1;
     template = `
-    
     <div id="container" style="max-width: 1100px; margin: auto; position: relative">
         <link href="./components/carosello/carosello.component.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
