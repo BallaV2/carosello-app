@@ -117,7 +117,7 @@ class CaroselloComponent extends HTMLElement {
         this.listenToEvents();
         this.checkInputAttributes();
         async () => {
-            this.imgWidth = this.isMobile ? this.shadowRoot?.querySelectorAll('.img img')[0]?.clientWidth : 400;
+            this.imgWidth = this.shadowRoot?.querySelectorAll('.img img')[0]?.clientWidth;
         }
     }
 
@@ -202,7 +202,7 @@ class CaroselloComponent extends HTMLElement {
     addImgToTopAndBottom() {
         /* this.render(); */
         const carosello = this.shadowRoot.getElementById('carosello');
-        this.imgWidth = this.shadowRoot.querySelector('img').offsetWidth || 400;
+        this.imgWidth = this.shadowRoot.querySelector('img')?.offsetWidth;
         let caroselloChildrens = [...carosello.children];
                 
         let nImgToShow = Math.round(carosello.offsetWidth / this.imgWidth) /* Numero delle immagini da mostrare nel carosello */
@@ -329,15 +329,17 @@ class CaroselloComponent extends HTMLElement {
             rank == radio.id ? radio.classList.add('no-cursor-pointer') : radio.classList.remove('no-cursor-pointer');
         })
 
-        if(isRadioButton){
+        if(isRadioButton){ /* PS: questi 1 e 2 sono usciti dal fatto che su desktop vengono mostrate 3 immagini mentre su mobile solamente una */
             carosello.classList.add("no-transition");
             carosello.scrollLeft = 0;
             if(rank == 0) {
-                carosello.scrollLeft += this.isMobile ? 0 : (this.imglist.split(',').length - 2) * this.imgWidth;
+                let imgToGoNext = this.imglist.split(',').length <= 9 ? 1 : 0;
+                carosello.scrollLeft += this.isMobile ? 0 : (this.imglist.split(',').length - imgToGoNext) * this.imgWidth;
             } else if(rank == this.imglist.split(',').length - 1){
-                carosello.scrollLeft += this.isMobile ? (this.imglist.split(',').length - 1) * imgs[0].clientWidth : 2 * this.imgWidth;
+                let imgToReturnBack = this.imglist.split(',').length <= 9 ? 2 : 1;
+                carosello.scrollLeft += this.isMobile ? (this.imglist.split(',').length - 1) * this.imgWidth : (this.imglist.split(',').length - imgToReturnBack) * this.imgWidth;
             } else {
-                carosello.scrollLeft += (this.isMobile ? rank : (rank - 1)) * imgs[0].clientWidth;
+                carosello.scrollLeft += (this.isMobile ? rank : (rank - 1)) * this.imgWidth;
             }
             carosello.classList.remove("no-transition");
         }
