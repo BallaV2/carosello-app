@@ -13,8 +13,8 @@ Punti sviluppati
 
 Per runnare l'app è sufficente avere node (versione consigliata v18.12.1).
 
-Per eseguire l'app si pùò utilizzare lo script "start" nel package.json e aprire nel browser http://localhost:4200
-Altrimenti nei casi peggiori aprire sul browser il file index.html a mano.
+Per eseguire l'app si pùò utilizzare lo script "start" nel package.json e aprire nel browser http://localhost:4200.
+Se da problemi si può usare lo script "start-alternativo"
 
 Note:
 Le freccie, i pallini di navigazione e il tasto per l'autoPlay sono stati inseriti come parametri configurabile dal componente.
