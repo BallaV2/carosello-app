@@ -87,6 +87,7 @@ class CaroselloComponent extends HTMLElement {
             imglist: string[] = La lista di immagini da mostrare dentro il carosello      🔴IMPORTANTE: input minimo consigliato = 3 immagini
             showarrow: boolean = Mostra o meno le freccette per andare avanti o indietro nel carosello
             showradios: boolean = Mostra o meno i pallini sotto il carosello
+            showinfiniteloop: boolean = Mostra o meno il tasto sopra il carosello per il loop infinito
             dragimgenabled: boolean = Abilita o meno la possibilità di sfogliare il carosello trascinando le immagini
         */
         return ['imglist', 'showarrow', 'showradios', 'showinfiniteloop']
@@ -121,7 +122,7 @@ class CaroselloComponent extends HTMLElement {
         }
     }
 
-    /* Lifecycle che viene chiamato quando il componente viene aggiunto al DOM tipo ngAfterViewInit */
+    /* Lifecycle che viene chiamato quando il componente viene aggiunto al DOM tipo ngOnInit */
     connectedCallback() {
         console.info('Carosello aggiunto alla pagina...');
         /* this.render(); */
@@ -312,9 +313,7 @@ class CaroselloComponent extends HTMLElement {
     }
 
     checkSelectedRadio(radioBtns, rank, carosello, isRadioButton = null) {
-        const imgs = this.shadowRoot.querySelectorAll('.img img');
-
-        if(!isRadioButton) {
+        if(!isRadioButton) { /* Gestisce il caso in cui mi sposto sulla prima o ultima immagine con le freccette di navigazione */
             if(rank == -1) {
                 this.currentImg = this.imglist.split(',').length - 1;
                 rank = this.imglist.split(',').length - 1;
@@ -324,12 +323,12 @@ class CaroselloComponent extends HTMLElement {
             }
         }
 
-        radioBtns.forEach((radio, i) => {
+        radioBtns.forEach((radio, i) => { /* Mette il check sul pallino dell'immagine selezionata */
             radio.checked = rank == radio.id;
             rank == radio.id ? radio.classList.add('no-cursor-pointer') : radio.classList.remove('no-cursor-pointer');
         })
 
-        if(isRadioButton){ /* PS: questi 1 e 2 sono usciti dal fatto che su desktop vengono mostrate 3 immagini mentre su mobile solamente una */
+        if(isRadioButton){ /* Gestisce il caso in cui mi sposto sulla prima o ultima immagine con i pallini di navigazione */
             carosello.classList.add("no-transition");
             carosello.scrollLeft = 0;
             if(rank == 0) {
